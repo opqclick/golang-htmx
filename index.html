@@ -48,13 +48,11 @@
                     class="form-control"
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">
-                  <span
-                    class="spinner-border spinner-border-sm htmx-indicator"
-                    id="spinner"
-                  ></span>
-                  Submit
-                </button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <span
+                  class="spinner-border spinner-border-sm htmx-indicator"
+                  id="spinner"
+                ></span>
               </form>
             </div>
           </div>
@@ -69,11 +67,11 @@
             </div>
             <div class="card-body">
               <ul class="list-group" id="film-list">
-                {{ range .Films }}
+                {{ range .Films }} {{ block "film-list-element" .}}
                 <li class="list-group-item bg-primary text-white">
                   {{ .Title }} - {{ .Director }}
                 </li>
-                {{ end }}
+                {{ end }} {{ end }}
               </ul>
             </div>
           </div>
